@@ -13,6 +13,8 @@
     "vite-plugin-restart": "^0.4.1"
   },
   "dependencies": {
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
     "gif.js": "^0.2.0",
     "gift": "^0.10.2",
     "lil-gui": "^0.19.2",
