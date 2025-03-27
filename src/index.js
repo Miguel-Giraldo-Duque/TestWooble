@@ -83,7 +83,7 @@ const camera = new THREE.PerspectiveCamera(
 
 // Posición inicial de la cámara
 if (window.innerWidth < 500) {
-  camera.position.set(13, -30, -5);
+  camera.position.set(13, -10, -5);
 } else {
   camera.position.set(13, -10, -5);
 }
@@ -110,8 +110,10 @@ const debouncedResize = debounce(() => {
 
   // Actualizar posición de la cámara
   if (window.innerWidth < 500) {
-    camera.position.set(13, -25, -5);
+    console.log("small");
+    camera.position.set(13, -20, -5);
   } else {
+
     camera.position.set(13, -20, -5);
   }
 
