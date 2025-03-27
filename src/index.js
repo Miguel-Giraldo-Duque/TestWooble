@@ -108,14 +108,18 @@ const debouncedResize = debounce(() => {
   sizes.height = window.innerHeight;
   sizes.pixelRatio = Math.min(window.devicePixelRatio, 2);
 
-  // Actualizar posición de la cámara
-  if (window.innerWidth < 500) {
-    console.log("small");
-    camera.position.set(13, -20, -5);
-  } else {
+  console.log(sizes.width); 
+  console.log(sizes.height);
 
-    camera.position.set(13, -20, -5);
+  // Actualizar posición de la cámara con valores más conservadores
+  if (window.innerWidth < 500) {
+    camera.position.set(13, -10, -5);
+  } else {
+    camera.position.set(13, -10, -5);
   }
+
+  // Asegurarse que la cámara mira al centro
+  camera.lookAt(scene.position);
 
   // Actualizar propiedades de la cámara
   camera.aspect = sizes.width / sizes.height;
@@ -124,6 +128,7 @@ const debouncedResize = debounce(() => {
   // Actualizar renderer
   renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(sizes.pixelRatio);
+
 }, 250);
 
 window.addEventListener("resize", debouncedResize, { passive: true });
